@@ -1,0 +1,36 @@
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/bin/Debug/net7.0/omansecurityapp.Shared.deps.json
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/bin/Debug/net7.0/omansecurityapp.Shared.dll
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/bin/Debug/net7.0/omansecurityapp.Shared.pdb
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/obj/Debug/net7.0/omansecurityapp.Shared.csproj.AssemblyReference.cache
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/obj/Debug/net7.0/omansecurityapp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/obj/Debug/net7.0/omansecurityapp.Shared.AssemblyInfoInputs.cache
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/obj/Debug/net7.0/omansecurityapp.Shared.AssemblyInfo.cs
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/obj/Debug/net7.0/omansecurityapp.Shared.csproj.CoreCompileInputs.cache
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/obj/Debug/net7.0/omansecurityapp.Shared.dll
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/obj/Debug/net7.0/refint/omansecurityapp.Shared.dll
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/obj/Debug/net7.0/omansecurityapp.Shared.pdb
+/Users/hassaniqball/Projects/omansecurityapp/omansecurityapp/Shared/obj/Debug/net7.0/ref/omansecurityapp.Shared.dll
+D:\omansecurityapp\omansecurityapp\Shared\bin\Debug\net7.0\omansecurityapp.Shared.deps.json
+D:\omansecurityapp\omansecurityapp\Shared\bin\Debug\net7.0\omansecurityapp.Shared.dll
+D:\omansecurityapp\omansecurityapp\Shared\bin\Debug\net7.0\omansecurityapp.Shared.pdb
+D:\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.csproj.AssemblyReference.cache
+D:\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.AssemblyInfoInputs.cache
+D:\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.AssemblyInfo.cs
+D:\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.csproj.CoreCompileInputs.cache
+D:\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.dll
+D:\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\refint\omansecurityapp.Shared.dll
+D:\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.pdb
+D:\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\ref\omansecurityapp.Shared.dll
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\bin\Debug\net7.0\omansecurityapp.Shared.deps.json
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\bin\Debug\net7.0\omansecurityapp.Shared.dll
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\bin\Debug\net7.0\omansecurityapp.Shared.pdb
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.csproj.AssemblyReference.cache
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.AssemblyInfoInputs.cache
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.AssemblyInfo.cs
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.csproj.CoreCompileInputs.cache
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.dll
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\refint\omansecurityapp.Shared.dll
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\omansecurityapp.Shared.pdb
+D:\.net projects\omansecurityapp\omansecurityapp\Shared\obj\Debug\net7.0\ref\omansecurityapp.Shared.dll
