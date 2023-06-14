@@ -1,0 +1,87 @@
+﻿@page "/adminlogin"
+
+@using System.Net.Http.Json
+@using omansecurityapp.Shared.Models
+@inject HttpClient httpClient
+@inject NavigationManager NavigationManager
+
+<h1 class="text-center mb-4">Login</h1>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ErrorMessage
+    </div>
+}
+
+<br>
+<br>
+<div class="form-group">
+    <label for="uniqueId">Unique ID:</label>
+    <input type="text" class="form-control" id="uniqueId" @bind="@UniqueID">
+</div>
+<br>
+<div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" id="password" @bind="@Password">
+</div>
+<br>
+<div class="form-group">
+    <label for="role">Role:</label>
+    <select class="form-control" id="role" @bind="@Role">
+        <option value="Police Officer">Police Officer</option>
+        <option value="Investigation Officer">Investigation Officer</option>
+        <option value="Admin">Admin</option>
+    </select>
+</div>
+<br>
+<br>
+<button class="btn btn-primary" @onclick="Login">Login</button>
+<button class="btn btn-secondary" @onclick="@(() => NavigationManager.NavigateTo("/signup"))">Sign Up</button>
+<button class="btn btn-secondary" @onclick="@(() => NavigationManager.NavigateTo("/forgetpassword"))">Forgot Password</button>
+
+@code {
+    private string UniqueID { get; set; }
+    private string Password { get; set; }
+    private string ErrorMessage { get; set; }
+    private string Role { get; set; }
+    
+
+    private async void Login()
+    {
+        try
+        {
+            var user = await httpClient.GetFromJsonAsync<AdminUsers>($"api/User/{UniqueID}");
+            if (user != null && user.Password == Password && user.Role == Role)
+            {
+                switch (Role)
+                {
+                    case "Police Officer":
+                        NavigationManager.NavigateTo("/police-officer");
+                        break;
+                    case "Investigation Officer":
+                        NavigationManager.NavigateTo("/investigation-officer");
+                        break;
+                    case "Admin":
+                        NavigationManager.NavigateTo("/admin");
+                        break;
+                }
+            }
+            else
+            {
+                ErrorMessage = "Invalid credentials. Please try again.";
+            }
+        }
+        catch
+        {
+            ErrorMessage = "An error occurred while processing the request. Please try again later.";
+        }
+    }
+}
+
+<style>
+    .btn {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+</style>

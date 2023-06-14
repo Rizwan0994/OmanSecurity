@@ -1,0 +1,23 @@
+﻿@page "/update-success"
+@inject NavigationManager NavigationManager
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="text-center">
+        <img src="/success.png" alt="Error" class="img-fluid mb-4" style="max-width: 200px; max-height: 200px;">
+        <i class="fas fa-check-circle fa-5x text-success mb-4"></i>
+
+        <h3 class="mb-4">Changes Has Been Made Successfully!</h3>
+        <button type="button" class="btn btn-secondary mt-4" @onclick="@(() => NavigationManager.NavigateTo("/investigation-officer"))">Go Back</button>
+    </div>
+</div>
+
+<style>
+    .container {
+        height: 80vh;
+    }
+</style>
+
+@code {
+
+}
+

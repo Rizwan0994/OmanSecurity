@@ -1,0 +1,143 @@
+﻿@page "/police-security-report"
+@inject IJSRuntime JSRuntime
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+@using omansecurityapp.Shared.Models
+@using Microsoft.Extensions.Configuration;
+@using System.Text.Json;
+
+
+<div class="container">
+    <h1 class="text-center mb-4">Police Security Report</h1>
+    <p class="text-center">Please provide details about the illegal activity you witnessed:</p>
+
+
+    <div id="map" style="height:500px;width:100%;">
+    </div>
+    <br><br>
+
+    <form method="post" @onsubmit="SubmitReport" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="activityType">Activity Type:</label>
+            <select class="form-control" id="activityType" @bind="@ActivityType">
+                <option value="">-- Select --</option>
+                <option value="Theft">Theft</option>
+                <option value="Road Fights">Criminal Offenses</option>
+                <option value="Harassment">Harassment</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" class="form-control" id="location" @bind="@Location" />
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" rows="3" @bind="@Description"></textarea>
+        </div>
+
+         <div class="form-group">
+            <label for="media">Media:</label>
+            <InputFile class="form-control" id="media" OnChange="OnMediaFileChange" />
+        </div>
+
+        <br><br>
+        <button class="btn btn-primary" type="submit">Submit Report</button>
+    </form>
+
+</div>
+<br>
+<br>
+@code {
+    private string ActivityType { get; set; }
+    private string Location { get; set; }
+    private string Description { get; set; }
+    private IBrowserFile MediaFile { get; set; }
+
+    private async Task SubmitReport()
+    {
+        // Create a new instance of the Report1 model class and populate it with the form data
+        var newReport = new AddNewReports { ReportType = ActivityType, Location = Location, Description = Description };
+
+        // Prepare the media file for upload
+        if (MediaFile != null)
+        {
+            using var memoryStream = new MemoryStream();
+            await MediaFile.OpenReadStream().CopyToAsync(memoryStream);
+            newReport.Media = memoryStream.ToArray();
+            newReport.MediaType = MediaFile.ContentType;
+        }
+
+        // Use the HttpClient service to post the new report to the server
+        var response = await Http.PostAsJsonAsync("api/Reports/AddNewReport", newReport);
+
+        // Check if the response was successful
+        if (response.IsSuccessStatusCode)
+        {
+            // Redirect the user to a confirmation page
+            NavigationManager.NavigateTo("/report-submitted");
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/error-page");
+        }
+    }
+
+    private void OnMediaFileChange(InputFileChangeEventArgs e)
+    {
+        MediaFile = e.File;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initialize", null);
+        }
+    }
+
+}
+
+
+<style>
+    body {
+        background: linear-gradient(135deg, #4b6cb7, #182848);
+    }
+
+    h1 {
+        color: #fff;
+        font-size: 36px;
+        font-weight: bold;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .container {
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group label {
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-control {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #000;
+        border: none;
+        border-radius: 5px;
+    }
+
+</style>

@@ -1,0 +1,138 @@
+﻿@page "/police-officer"
+
+@using omansecurityapp.Shared.Models
+@using System.Text.Json
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+<h1 class="text-center mb-4">Welcome, Officer!</h1>
+@if (ReportList == null)
+{
+    <tr><td colspan="8">No data available.</td></tr>
+}
+else
+{
+    <table class="table table-dark">
+        <thead class="table-success">
+            <tr>
+                <th>Report Type</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Media</th>
+                <th>Priority</th>
+                <th>Assigned Officer</th>
+                <th>Update Priority & Assign Officer</th>         
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rep in ReportList)
+            {
+                <tr>
+                    <td>@rep.ReportType</td>
+                    <td>@rep.Location</td>
+                    <td>@rep.Description</td>
+                    <td>
+                        @if (rep.Media != null && rep.MediaType.StartsWith("image/"))
+                        {
+                            <img src="@($"data:{rep.MediaType};base64,{Convert.ToBase64String(rep.Media)}")" width="100" height="100" />
+                        }
+                        else if (rep.Media != null && rep.MediaType.StartsWith("video/"))
+                        {
+                            <video src="@($"data:{rep.MediaType};base64,{Convert.ToBase64String(rep.Media)}")" width="100" height="100" controls></video>
+                        }
+                        else if (rep.Media != null)
+                        {
+                            <a href="@($"data:{rep.MediaType};base64,{Convert.ToBase64String(rep.Media)}")" target="_blank">View Media</a>
+                        }
+                        else
+                        {
+                           <p>No Media</p>
+                        }
+                    </td>
+                    <td>
+                        <select @bind="@rep.Priority">
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </td>
+                    <td><input type="text" @bind="@rep.AssignedOfficer"></td>
+                    <td><button class="btn btn-secondary" @onclick="@(() => SetPriorityAndAssignOfficer(rep))">Submit</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private PoliceOfficerReports[] ReportList;
+
+    // Save the updated assigned officer & priority to the database
+    private async Task SetPriorityAndAssignOfficer(PoliceOfficerReports rep)
+    {
+
+        // Post the updated assigned officer to the SetAssignedOfficer API endpoint
+        var response = await Http.PutAsJsonAsync("api/Reports/SetPriorityAndAssignOfficer", rep);
+        if (response.IsSuccessStatusCode)
+        {
+            NavigationManager.NavigateTo("/reports-forwarded");
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/report-forward-failed");
+        }
+    }
+
+    protected async override Task OnInitializedAsync()
+    {
+        // Fetch reports from the database
+        ReportList = await Http.GetFromJsonAsync<PoliceOfficerReports[]>("api/Reports/GetSubmittedReports");
+    }
+
+}
+
+
+<style>
+    body {
+        background: linear-gradient(135deg, #4b6cb7, #182848);
+    }
+
+    h1 {
+        color: #fff;
+        font-size: 36px;
+        font-weight: bold;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .container {
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .table {
+        background-color: #fff;
+    }
+
+    .table-dark th {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>

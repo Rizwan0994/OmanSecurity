@@ -1,0 +1,100 @@
+﻿@page "/login"
+@layout MainLayout
+
+@using System.Threading.Tasks
+@using System.Text.RegularExpressions
+@using Twilio
+@using Twilio.Rest.Api.V2010.Account
+@namespace Twilio.Clients
+
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+
+<h1 class="text-center mb-4">Login</h1>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label>Civil Number:</label>
+            <input type="text" class="form-control" @bind="@CivilNumber" />
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Phone Number:</label>
+            <input type="text" class="form-control" @bind="@PhoneNumber" />
+        </div>
+        <br><br>
+        <button class="btn btn-primary" @onclick="@SendOtp">Login</button>
+    </form>
+</div>
+
+@code {
+    private string CivilNumber { get; set; }
+    private string PhoneNumber { get; set; }
+    private string ErrorMessage2 { get; set; }
+
+    private async Task SendOtp()
+    {
+        if (string.IsNullOrEmpty(CivilNumber) || string.IsNullOrEmpty(PhoneNumber))
+        {
+            var ErrorMessage = await JSRuntime.InvokeAsync<bool>("confirm", "Fill the required fields to continue!");
+            if (!ErrorMessage)
+            {
+                return;
+            }
+        }
+
+        else
+        {
+            var confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "I admit I'm the user of Oman Security Program that I am aware of the Law System.");
+            if (confirmed)
+            {
+                // Redirecting user to OTP verification page
+                NavigationManager.NavigateTo("/otpverify");
+            }
+
+            // Save the phone number before generating and sending the OTP
+            var phoneNumber = PhoneNumber;
+
+            // Generating a random 6-digit OTP code
+            var otp = new Random().Next(100000, 999999).ToString();
+
+            try
+            {
+                // Sending the OTP to the provided phone number using the MessageService
+                await SendOtpAsync(phoneNumber, otp);
+
+                // Storing the generated OTP in session storage for later verification
+                await JSRuntime.InvokeVoidAsync("sessionStorage.setItem", "otp", otp);
+                await JSRuntime.InvokeVoidAsync("sessionStorage.setItem", "phone", phoneNumber);
+
+                // Redirecting user to OTP verification page
+                NavigationManager.NavigateTo("/otpverify");
+            }
+            catch (Exception ex)
+            {
+                // Display error message if OTP sending fails
+                ErrorMessage2 = $"Failed to send OTP: {ex.Message}";
+            }
+        }
+
+    }
+
+    private async Task SendOtpAsync(string phone, string otp)
+    {
+        // Your Account SID and Auth Token from twilio.com/console
+        const string accountSid = "ACe85b07cac298005c935381bdfff55d0a";
+        const string authToken = "6b9e90d70c0d2bcb13f28638030da6d9";
+
+        TwilioClient.Init(accountSid, authToken);
+
+        var message = await MessageResource.CreateAsync(
+            body: $"Your OTP is {otp}",
+            from: new Twilio.Types.PhoneNumber("+923479028900"),
+            to: new Twilio.Types.PhoneNumber(phone)
+        );
+
+        Console.WriteLine($"OTP sent to {phone}: {otp}");
+    }
+
+}

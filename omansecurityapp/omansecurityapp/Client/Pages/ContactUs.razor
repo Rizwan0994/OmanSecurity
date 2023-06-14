@@ -1,0 +1,68 @@
+﻿@page "/ContactUs"
+@layout MainLayout
+
+<h1 class="text-center mb-4">Contact Us</h1>
+
+<p>Do you have questions or feedback about our services? <br /> We'd love to hear from you! <br />You can contact us using the form below, or by phone or email.</p>
+
+<form>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea class="form-control" id="message" rows="5"></textarea>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<br>
+<p>Alternatively, you can reach us by phone at 123-456-7890 or by email at info@omansecurityapp.com.</p>
+
+
+<style>
+    body {
+        background: linear-gradient(135deg, #4b6cb7, #182848);
+    }
+
+    h1 {
+        color: #fff;
+        font-size: 36px;
+        font-weight: bold;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .container {
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group label {
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-control {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #000;
+        border: none;
+        border-radius: 5px;
+    }
+</style>

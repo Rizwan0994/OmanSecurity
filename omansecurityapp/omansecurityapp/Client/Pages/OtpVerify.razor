@@ -1,0 +1,148 @@
+﻿@page "/otpverify"
+@layout MainLayout
+
+
+@using System.Threading.Tasks
+@using System.Text.RegularExpressions
+@using Microsoft.AspNetCore.Components
+
+@using Twilio
+@using Twilio.Rest.Api.V2010.Account
+@namespace Twilio.Clients
+
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<h1 class="text-center mb-4">Verify Otp</h1>
+    <form>
+        <div class="form-group">
+            <label>OTP:</label>
+            <input type="text" class="form-control" @bind="@EnteredOtp" />
+        </div>
+        <br>
+        <div class="form-group">
+            <p>Enter the OTP sent to your phone number ending in @PhoneNumber.</p>
+            <p>OTP will expire in @timeLeft seconds.</p>
+            <button disabled="@resendButtonDisabled" class="btn btn-secondary" @onclick="@ResendOtp">Resend OTP</button>
+        </div>
+        <br><br>
+        <button class="btn btn-primary" @onclick="@ValidateOtp">Verify OTP</button>
+    </form>
+
+@code {
+    private string EnteredOtp { get; set; }
+    private string PhoneNumber { get; set; }
+    private int timeLeft = 60;
+    private bool resendButtonDisabled = true;
+
+    private string ErrorMessage { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var otp = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "otp");
+        var phone = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "phone");
+
+
+
+        //if (!string.IsNullOrEmpty(otp) && !string.IsNullOrEmpty(phone))
+        //{
+        //    // Initializing the session storage page with the phone number and OTP stored
+        //    PhoneNumber = phone;
+        //}
+        //else
+        //{
+        //    // If there is no OTP or phone number saved, redirect user to login page
+        //    //NavigationManager.NavigateTo("/login");
+
+        //    //for testing (bcz otp services are not added yet)
+        //    //NavigationManager.NavigateTo("/reports");
+
+        //}
+
+    }
+
+    private async Task ValidateOtp()
+    {
+
+        if (string.IsNullOrEmpty(EnteredOtp))
+        {
+            var ErrorMessage = await JSRuntime.InvokeAsync<bool>("confirm", "Enter OTP and try again!");
+            if (ErrorMessage)
+            {
+                return;
+            }
+        }
+
+        NavigationManager.NavigateTo("/reports");
+
+        //// Validate that the input is a 6-digit numeric string
+        //if (!Regex.IsMatch(EnteredOtp, @"^\d{6}$"))
+        //{
+        //    ErrorMessage = "Invalid OTP format. Please enter a 6-digit code.";
+        //    return;
+        //}
+
+        //var otp = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "otp");
+        //var phone = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "phone");
+
+        //if (EnteredOtp == otp && phone == PhoneNumber)
+        //{
+        //    // Clear session storage
+        //    await JSRuntime.InvokeVoidAsync("sessionStorage.removeItem", "otp");
+        //    await JSRuntime.InvokeVoidAsync("sessionStorage.removeItem", "phone");
+
+        //    // Redirect user to home page
+        //    NavigationManager.NavigateTo("/report");
+        //}
+        //else
+        //{
+        //    // Display error message & go back to login page
+        //    ErrorMessage = "Invalid OTP. Please try again.";
+
+        //}
+    }
+
+    private async Task ResendOtp()
+    {
+        var phone = await JSRuntime.InvokeAsync<string>("sessionStorage.getItem", "phone");
+
+        try
+        {
+            // Generate new OTP
+            var otp = new Random().Next(100000, 999999).ToString();
+
+            // Send new OTP to user's phone number using SendOtpAsync method
+            await SendOtpAsync(phone, otp);
+
+            // Store new OTP in session storage and reset countdown timer
+            await JSRuntime.InvokeVoidAsync("sessionStorage.setItem", "otp", otp);
+            timeLeft = 60;
+            resendButtonDisabled = true;
+
+            // Display success message
+            ErrorMessage = "New OTP has been sent to your phone number.";
+        }
+        catch (Exception ex)
+        {
+            // Display error message if OTP sending fails
+            ErrorMessage = $"Failed to send OTP: {ex.Message}";
+        }
+    }
+
+    private async Task SendOtpAsync(string phone, string otp)
+    {
+        // Your Account SID and Auth Token from twilio.com/console
+        const string accountSid = "ACe85b07cac298005c935381bdfff55d0a";
+        const string authToken = "6b9e90d70c0d2bcb13f28638030da6d9";
+
+        TwilioClient.Init(accountSid, authToken);
+
+        var message = await MessageResource.CreateAsync(
+            body: $"Your OTP is {otp}",
+            from: new Twilio.Types.PhoneNumber("+923479028900"),
+            to: new Twilio.Types.PhoneNumber(phone)
+        );
+
+        Console.WriteLine($"OTP sent to {phone}: {otp}");
+    }
+}

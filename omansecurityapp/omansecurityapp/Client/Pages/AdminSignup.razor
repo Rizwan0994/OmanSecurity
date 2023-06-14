@@ -1,0 +1,94 @@
+﻿@page "/signup"
+@using omansecurityapp.Shared.Models
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+@inject HttpClient Http
+
+<h1 class="text-center mb-4">SignUp</h1>
+
+<div class="container">
+    <div class="card mx-auto">
+        <div class="card-body">
+            <form method="post" @onsubmit="AddUser" enctype="application/json">
+
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label>First Name:</label>
+                        <input type="text" class="form-control" @bind="@FirstName" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Last Name:</label>
+                        <input type="text" class="form-control" @bind="@LastName" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" class="form-control" @bind="@Username" />
+                </div>
+
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" class="form-control" id="Password" @bind="@Password" />
+                </div>
+
+                <div class="form-group">
+                    <label>Role:</label>
+                    <select class="form-control" @bind="@Role">
+                        <option value="Police Officer">Police Officer</option>
+                        <option value="Investigation Officer">Investigation Officer</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+                <br><br>
+                <div class="form-group row">
+                    <div class="col-md-6 text-center">
+                        <button class="btn btn-success" type="submit">Sign Up</button>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <button class="btn btn-danger" type="button" @onclick="Cancel">Cancel</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string FirstName { get; set; }
+    private string LastName { get; set; }
+    private string Username { get; set; }
+    private string Password { get; set; }
+    private string Role { get; set; }
+
+    private async Task AddUser()
+    {
+        // Generate Unique ID of 3-4 numbers
+        var random = new Random();
+        var uniqueId = random.Next(100, 10000);
+
+        var newUser = new AdminUsers { FirstName = FirstName, LastName = LastName, Username = Username, Password = Password, Role = Role, UniqueID = uniqueId };
+
+        // Show the unique ID to the user with a pop-up text
+        await JSRuntime.InvokeAsync<object>("alert", $"Save this Unique ID ({uniqueId}) for login.");
+
+        // Add new user to the database
+        var response = await Http.PostAsJsonAsync("api/User/AddNewUser", newUser);
+        // Check if the response was successful
+        if (response.IsSuccessStatusCode)
+        {
+            // Navigate the user back to the login page
+            NavigationManager.NavigateTo("/adminlogin");
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/signup");
+        }
+    }
+
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/adminlogin");
+    }
+}

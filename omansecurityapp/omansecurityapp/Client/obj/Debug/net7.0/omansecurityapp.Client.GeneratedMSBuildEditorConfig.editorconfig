@@ -1,0 +1,113 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = omansecurityapp.Client
+build_property.RootNamespace = omansecurityapp.Client
+build_property.ProjectDir = D:\.net projects\omansecurityapp\omansecurityapp\Client\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\.net projects\omansecurityapp\omansecurityapp\Client
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/AboutUs.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXRVcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/Admin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/AdminSignup.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5TaWdudXAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/AdminsLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5zTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/ContactUs.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdFVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/ErrorPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3JQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/ForgetPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRm9yZ2V0UGFzc3dvcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/InvestigationOfficer.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52ZXN0aWdhdGlvbk9mZmljZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/OtpVerify.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3RwVmVyaWZ5LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/PageUpdateSuccessPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZVVwZGF0ZVN1Y2Nlc3NQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/PoliceOfficer.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9saWNlT2ZmaWNlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/PoliceSecurityReport.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9saWNlU2VjdXJpdHlSZXBvcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/Report.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/ReportForwardFail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0Rm9yd2FyZEZhaWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/RoadSafetyPoliceReport.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9hZFNhZmV0eVBvbGljZVJlcG9ydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/SubmittedReports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VibWl0dGVkUmVwb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/SuccessPageReports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3VjY2Vzc1BhZ2VSZXBvcnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/TrafficPoliceReport.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhZmZpY1BvbGljZVJlcG9ydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Pages/UpdateFailPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlRmFpbFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.net projects/omansecurityapp/omansecurityapp/Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-6ebfyhbwoi

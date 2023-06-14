@@ -1,0 +1,92 @@
+﻿@page "/report"
+@layout MainLayout
+
+@inject NavigationManager NavigationManager
+
+<div class="container">
+    <h1 class="text-center mb-4">Submit a Report</h1>
+    <p class="text-center">Please select the type of report you would like to submit:</p>
+
+    <div class="row mt-5">
+        <div class="col-md-4 py-3">
+            <div class="card rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                <a href="@("/traffic-police-report")">
+                    <img src="/icons/accident.png" class="w-full h-auto" alt="Traffic Police Report">
+                    <h3 class="mt-3 text-xl font-medium">Traffic Police Report</h3>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 py-3">
+            <div class="card rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                <a href="@("/police-security-report")">
+                    <img src="/icons/theft.png" class="w-full h-auto" alt="Police Security Report">
+                    <h3 class="mt-3 text-xl font-medium">Police Security Report</h3>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 py-3">
+            <div class="card rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                <a href="@("/road-safety-report")">
+                    <img src="/icons/safety.png" class="w-full h-auto" alt="Road Safety Police Report">
+                    <h3 class="mt-3 text-xl font-medium">Road Safety Police Report</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #4b6cb7, #182848);
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        color: #fff;
+        font-size: 36px;
+        font-weight: bold;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .card {
+        background-color: #fff;
+        padding: 30px;
+        text-align: center;
+        transition: all 300ms ease-in-out;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+    img {
+        filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
+        max-width: 150px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    h3 {
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.5em;
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+</style>

@@ -1,0 +1,21 @@
+﻿@page "/error-page"
+@inject NavigationManager NavigationManager
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="text-center">
+        <img src="/error.png" alt="Error" class="img-fluid mb-4" style="max-width: 200px; max-height: 200px;">
+        <h3 class="mb-4">Error</h3>
+        <p class="lead">There were issues with your Complain. Try Submitting it again!</p>
+        <button type="button" class="btn btn-primary mt-4" @onclick="@(() => NavigationManager.NavigateTo("/report"))">Submit Again</button>
+    </div>
+</div>
+
+<style>
+    .container {
+        height: 80vh;
+    }
+</style>
+
+@code {
+
+}
