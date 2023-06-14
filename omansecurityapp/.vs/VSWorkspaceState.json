@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\omansecurityapp",
+    "\\omansecurityapp\\Client",
+    "\\omansecurityapp\\Client\\Pages",
+    "\\omansecurityapp\\Server",
+    "\\omansecurityapp\\Server\\Services"
+  ],
+  "SelectedNode": "\\omansecurityapp\\Server\\Services\\ReportServices.cs",
+  "PreviewInSolutionExplorer": false
+}

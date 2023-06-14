@@ -1,0 +1,71 @@
+﻿<Properties StartupConfiguration="{4A2FBB80-7490-4AE0-8697-82BA185D49F7}|https">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="omansecurityapp/Client/Pages/AdminsLogin.razor">
+    <Files>
+      <File FileName="omansecurityapp/Client/Pages/Login.razor" Line="46" Column="1" />
+      <File FileName="omansecurityapp/Client/Pages/AdminSignup.razor" />
+      <File FileName="omansecurityapp/Client/Pages/AdminsLogin.razor" Line="73" Column="1" />
+      <File FileName="omansecurityapp/Client/Pages/PoliceOfficer.razor" Line="98" Column="33" />
+      <File FileName="omansecurityapp/Client/Pages/InvestigationOfficer.razor" Line="5" Column="41" />
+      <File FileName="omansecurityapp/Server/Program.cs" Line="61" Column="1" />
+      <File FileName="omansecurityapp/Server/appsettings.json" />
+      <File FileName="omansecurityapp/Server/Properties/launchSettings.json" />
+      <File FileName="omansecurityapp/Client/Program.cs" />
+      <File FileName="omansecurityapp/Client/App.razor" />
+      <File FileName="omansecurityapp/Client/_Imports.razor" />
+      <File FileName="omansecurityapp/Client/wwwroot/service-worker.js" />
+      <File FileName="omansecurityapp/Client/wwwroot/manifest.json" />
+      <File FileName="omansecurityapp/Client/wwwroot/index.html" />
+      <File FileName="omansecurityapp/Client/wwwroot/css/app.css" />
+      <File FileName="omansecurityapp/Client/Properties/launchSettings.json" />
+      <File FileName="omansecurityapp/Client/Shared/MainLayout.razor" />
+      <File FileName="omansecurityapp/Client/Pages/Index.razor" Line="14" Column="1" />
+      <File FileName="omansecurityapp/Shared/Users.cs" />
+      <File FileName="omansecurityapp/Server/AppDbContext.cs" />
+      <File FileName="omansecurityapp/Client/Pages/PoliceSecurityReport.razor" Line="1" Column="1" />
+      <File FileName="omansecurityapp/Client/Pages/Admin.razor" Line="5" Column="25" />
+      <File FileName="omansecurityapp/Client/Pages/OtpVerify.razor" Line="76" Column="9" />
+      <File FileName="omansecurityapp/Client/Pages/SubmittedReports.razor" Line="9" Column="22" />
+      <File FileName="omansecurityapp/Client/Pages/Report.razor" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="omansecurityapp" expanded="True">
+            <Node name="omansecurityapp.Client" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+                <Node name="ProjectDependencies" expanded="True" />
+              </Node>
+              <Node name="Pages" expanded="True">
+                <Node name="AdminsLogin.razor" selected="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="Shared" expanded="True" />
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="omansecurityapp.Server" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+            </Node>
+            <Node name="omansecurityapp.Shared" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.omansecurityapp.Server PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
